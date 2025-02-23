@@ -105,6 +105,14 @@ form.addEventListener('submit', (e) => {
         location: formData.get('location'),
         propertyType: formData.get('propertyType'),
         capacity: formData.get('capacity'),
+        roomType: formData.get('roomType'),
+        bedrooms: formData.get('bedrooms'),
+        beds: formData.get('beds'),
+        roomSize: formData.get('roomSize'),
+        roomLocation: Array.from(formData.getAll('roomLocation')),
+        transportDistance: formData.get('transportDistance'),
+        hostGender: formData.get('hostGender'),
+        foodFacility: formData.get('foodFacility'),
         amenities: Array.from(formData.getAll('amenities')),
         discounts: Array.from(formData.getAll('discounts')),
         images: selectedImages
@@ -138,6 +146,7 @@ inputs.forEach(input => {
         input.setAttribute('title', input.getAttribute('placeholder') || '');
     });
 });
+
 const photo = [
     "img/image1.jpg",
     "img/image2.jpg",
