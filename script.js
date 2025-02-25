@@ -76,6 +76,7 @@ function handleMediaUpload(files) {
 mediaInput.addEventListener('change', (e) => {
     handleMediaUpload(e.target.files);
 });
+
 // Drag and drop handlers
 uploadContainer.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -89,13 +90,13 @@ uploadContainer.addEventListener('dragleave', () => {
 uploadContainer.addEventListener('drop', (e) => {
     e.preventDefault();
     uploadContainer.classList.remove('dragover');
-    handleImageUpload(e.dataTransfer.files);
+    handleMediaUpload(e.dataTransfer.files);
 });
 
-// Form submission
+// ✅ Fixed Form Submission
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Gather form data
     const formData = new FormData(form);
     const data = {
@@ -115,19 +116,18 @@ form.addEventListener('submit', (e) => {
         foodFacility: formData.get('foodFacility'),
         amenities: Array.from(formData.getAll('amenities')),
         discounts: Array.from(formData.getAll('discounts')),
-        images: selectedImages
+        images: selectedMedia
     };
-    
-    // Log the data (replace with your API call)
+
     console.log('Form submitted:', data);
-    
-    // Reset form and preview
-    form.reset();
-    imagePreview.innerHTML = '';
-    selectedImages = [];
-    
-    // Show success message
-    alert('Listing submitted successfully!');
+
+    // Simulating form submission (Replace this with an actual API call if needed)
+    setTimeout(() => {
+        alert('Listing submitted successfully!');
+        form.reset();
+        mediaPreview.innerHTML = ''; // Clear previews
+        selectedMedia = []; // Reset uploaded media
+    }, 500);
 });
 
 // Close filters when clicking escape key
