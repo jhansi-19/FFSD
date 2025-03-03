@@ -172,3 +172,19 @@ setInterval(() => {
     if (currentIndex === photoArray.length) currentIndex = 0;
     updateBackgroundImage();
 }, 3000);
+
+
+document.getElementById("user-button").addEventListener("click",()=>{
+    const user_menu=document.getElementById("user-menu");
+    if(user_menu.display==="block"){
+        user_menu.style.display = "none"; 
+    }
+    else{
+        user_menu.style.display = "block"; 
+    }
+});
+
+document.getElementById("user-close-btn").addEventListener("click", ()=> {
+    const user_menu = document.getElementById("user-menu"); 
+    user_menu.style.display = "none"; 
+});
